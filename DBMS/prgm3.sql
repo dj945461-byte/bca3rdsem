@@ -1,0 +1,54 @@
+
+mysql> INSERT INTO student
+    -> VALUES(7,'Suresh','BCA',88,'KOPPAL');
+Query OK, 1 row affected (0.25 sec)
+
+mysql> INSERT INTO student VALUES
+    -> (8,'POOJA','BCA',78,'KOPPAL'),
+    -> (9,'RAMESH','Bcom',82,'Gangavati'),
+    -> (10,'Geeta','BCA',91,'yelburga'),
+    ->
+    -> (8,'POOJA','BCA',78,'KOPPAL'),
+    -> (9,'RAMESH','Bcom',82,'Gangavati'),
+    -> (10,'Geeta','BCA',91,'yelburga');
+ERROR 1062 (23000): Duplicate entry '8' for key 'student.PRIMARY'
+mysql> INSERT INTO student VALUES
+    -> (8,'POOJA','BCA',78,'KOPPAL'),
+    -> (9,'RAMESH','Bcom',82,'Gangavati'),
+    -> (10,'Geeta','BCA',91,'yelburga');
+Query OK, 3 rows affected (0.06 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE student
+    -> SET marks=95
+    -> WHERE id=7;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> DELETE FROM student
+    -> WHERE id=10;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT*FROM student;
++----+--------+------------+-------+------------+
+| id | name   | department | marks | city       |
++----+--------+------------+-------+------------+
+|  1 | Akash  | BCA        |    85 | Koppal     |
+|  2 | Ravi   | BCA        |    75 | Gangavathi |
+|  3 | Priya  | BCom       |    90 | Koppal     |
+|  4 | Manoj  | BCA        |    60 | Yelburga   |
+|  5 | Anu    | BCom       |    80 | Koppal     |
+|  6 | Kiran  | BCA        |    95 | Gangavathi |
+|  7 | Suresh | BCA        |    95 | KOPPAL     |
+|  8 | POOJA  | BCA        |    78 | KOPPAL     |
+|  9 | RAMESH | Bcom       |    82 | Gangavati  |
++----+--------+------------+-------+------------+
+9 rows in set (0.00 sec)
+
+mysql> DELETE FROM student;
+Query OK, 9 rows affected (0.11 sec)
+
+mysql> SELECT*FROM student;
+Empty set (0.00 sec)
+
+mysql>
